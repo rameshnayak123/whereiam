@@ -32,12 +32,9 @@
             .then(data => {
                 var resultDiv = document.getElementById("result");
                 resultDiv.innerHTML = `
-                    <h2>Title:</h2>
-                    <p>${data.title}</p>
-                    <h2>Content:</h2>
-                    <p>${data.content}</p>
-                    <h2>Thumbnail:</h2>
-                    <img src="${data.thumbnail}" alt="Thumbnail">
+                    <p><strong>Title:</strong> ${data.title}</p>
+                    <p><strong>Content:</strong> ${data.content}</p>
+                    <p><strong>Thumbnail:</strong> <img src="${data.thumbnail}" alt="Thumbnail"></p>
                 `;
             })
             .catch(error => {
