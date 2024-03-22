@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraping App</title>
+</head>
+<body>
+    <h1>Web Scraping App</h1>
+    <form id="urlForm">
+        <label for="urlInput">Enter URL:</label>
+        <input type="text" id="urlInput" name="url" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result">
+        <!-- Result will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById("urlForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var url = document.getElementById("urlInput").value;
+            fetch('/get_title_content_and_thumbnail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({url: url})
+            })
+            .then(response => response.json())
+            .then(data => {
+                var resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = `
+                    <h2>Title:</h2>
+                    <p>${data.title}</p>
+                    <h2>Content:</h2>
+                    <p>${data.content}</p>
+                    <h2>Thumbnail:</h2>
+                    <img src="${data.thumbnail}" alt="Thumbnail">
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
