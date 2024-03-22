@@ -2,10 +2,17 @@ from flask import Flask, request, jsonify, render_template
 from bs4 import BeautifulSoup
 import requests
 import os
+import sys
 import json
 import random
 import string
 from datetime import datetime
+
+
+# Add the directory containing captureTitle.py to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'program')))
+
+from captureTitle import extract_title
 
 app = Flask(__name__)
 
@@ -14,21 +21,14 @@ def generate_random_code(length):
     random_code = ''.join(random.choice(characters) for _ in range(length))
     return random_code
 
-def extract_title(url):
-    try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        title = soup.title.string
-        return title
-    except Exception as e:
-        return str(e)
+
 
 def extract_content(url):
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         paragraphs = soup.find_all('p')
-        content = '\n'.join([p.get_text() for p in paragraphs[:1]])
+        content = ''.join([p.get_text() for p in paragraphs[:1]])
         return content
     except Exception as e:
         return str(e)
