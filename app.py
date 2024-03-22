@@ -3,9 +3,17 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import json
+import random
+import string
 from datetime import datetime
 
 app = Flask(__name__)
+
+# random code 
+def generate_random_code(length):
+    characters = string.ascii_letters + string.digits
+    random_code = ''.join(random.choice(characters) for _ in range(length))
+    return random_code
 
 def extract_title(url):
     try:
@@ -64,16 +72,19 @@ def index():
 @app.route('/get_title_content_and_thumbnail', methods=['POST'])
 def get_title_content_and_thumbnail():
     url = request.json['url']
+    random_code = generate_random_code(8)
     title = extract_title(url)
     content = extract_content(url)
     thumbnail = extract_thumbnail(url)
     img_name = save_image(thumbnail)
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = {
+        'id': random_code,
         'title': title,
         'content': content,
         'image_path': f'/static/images/{img_name}',
-        'date_time': current_time
+        'date_time': current_time,
+        'url':f'https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/{random_code}'
     }
     json_name = save_json(data)
     
@@ -82,6 +93,8 @@ def get_title_content_and_thumbnail():
         json_data = json.load(json_file)
     
     return jsonify(json_data)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
