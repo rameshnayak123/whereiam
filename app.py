@@ -9,7 +9,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# random code 
 def generate_random_code(length):
     characters = string.ascii_letters + string.digits
     random_code = ''.join(random.choice(characters) for _ in range(length))
@@ -56,14 +55,28 @@ def save_image(url):
         return str(e)
 
 def save_json(data):
+    json_file_path = 'static/json/magic.json'
+    existing_data = []
+
     try:
-        json_name = datetime.now().strftime("%Y%m%d%H%M%S") + '.json'
-        json_path = os.path.join('static/json', json_name)
-        with open(json_path, 'w') as json_file:
-            json.dump(data, json_file, indent=4)
-        return json_name
+        # Read existing JSON data
+        if os.path.exists(json_file_path):
+            with open(json_file_path, 'r') as json_file:
+                existing_data = json.load(json_file)
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON file: {e}")
+
+    # Append new data to existing JSON data
+    existing_data.append(data)
+
+    try:
+        # Write updated JSON data back to the file
+        with open(json_file_path, 'w') as json_file:
+            json.dump(existing_data, json_file, indent=4)
     except Exception as e:
-        return str(e)
+        print(f"Error writing JSON file: {e}")
+
+    return json_file_path
 
 @app.route('/')
 def index():
@@ -84,16 +97,34 @@ def get_title_content_and_thumbnail():
         'content': content,
         'image_path': f'/static/images/{img_name}',
         'date_time': current_time,
-        'url':f'https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/{random_code}'
+        'url': f'https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/{random_code}'
     }
     json_name = save_json(data)
     
-    # Read the JSON file and return its contents
-    with open(os.path.join('static/json', json_name), 'r') as json_file:
-        json_data = json.load(json_file)
-    
-    return jsonify(json_data)
+    # Return the saved JSON data
+    return jsonify(data)
 
+
+## checking that magic link is working or not
+
+@app.route('/magic/<string:id>', methods=['GET'])
+def get_data_by_id(id):
+    json_file_path = 'static/json/magic.json'
+    
+    try:
+        # Read the JSON file
+        with open(json_file_path, 'r') as json_file:
+            data = json.load(json_file)
+        
+        # Search for the entry with the given ID
+        entry = next((item for item in data if item['id'] == id), None)
+        
+        if entry:
+            return jsonify(entry)
+        else:
+            return jsonify({'error': 'Entry not found'})
+    except Exception as e:
+        return jsonify({'error': f'Error: {e}'})
 
 
 if __name__ == '__main__':
