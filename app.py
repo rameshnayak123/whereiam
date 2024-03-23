@@ -24,7 +24,10 @@ def get_title_content_and_thumbnail():
 # checking that magic link is working or not
 @app.route('/magic/<string:id>', methods=['GET'])
 def get_data_by_id(id):
-    return magic(id)
+    response = magic(id)
+    data = response.get_json()
+    return render_template('template1.html', data=data)
+        
 
 
 if __name__ == '__main__':

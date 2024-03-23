@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if data and data.title %}{{ data.title }}{% else %}{{ data.error }}{% endif %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .card h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* Number of lines to show */
+            -webkit-box-orient: vertical;
+        }
+
+        .read-more {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% if data %}
+        <div class="card">
+            {% if data.title %}
+                <h1>{{ data.title }}</h1>
+            {% endif %}
+
+            {% if data.image_path %}
+                <img src="{{ data.image_path }}" alt="Image">
+            {% endif %}
+
+            {% if data.content %}
+                <p>{{ data.content }}</p>
+            {% endif %}
+            {% if data.error %}
+                <p>{{ data.error }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <script>
+        // JavaScript to toggle between full content and truncated content with "Read more" option
+        document.addEventListener("DOMContentLoaded", function() {
+            var showChar = 100; // Number of characters before "Read more" option appears
+            var contentDiv = document.querySelector('.card p');
+            var content = contentDiv.innerHTML;
+
+            if (content.length > showChar) {
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+                var html = c + '<span class="more-text" style="display:none;">' + h + '</span><span class="more-ellipses">...</span><a href="#" class="read-more">Read more</a>';
+                contentDiv.innerHTML = html;
+            }
+
+            document.querySelector('.read-more').addEventListener('click', function(e) {
+                e.preventDefault();
+                var moreTextSpan = document.querySelector('.more-text');
+                var moreEllipsesSpan = document.querySelector('.more-ellipses');
+                var readMoreLink = document.querySelector('.read-more');
+
+                if (moreTextSpan.style.display === 'none') {
+                    moreTextSpan.style.display = 'inline';
+                    moreEllipsesSpan.style.display = 'none';
+                    readMoreLink.innerHTML = 'Read less';
+                } else {
+                    moreTextSpan.style.display = 'none';
+                    moreEllipsesSpan.style.display = 'inline';
+                    readMoreLink.innerHTML = 'Read more';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

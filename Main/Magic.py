@@ -15,6 +15,6 @@ def magic(id):
         if entry:
             return jsonify(entry)
         else:
-            return jsonify({'error': 'Entry not found'})
+            return jsonify({'error': 'Entry not found May be Magic link expired create new'})
     except Exception as e:
         return jsonify({'error': f'Error: {e}'})
