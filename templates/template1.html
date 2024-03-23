@@ -21,17 +21,18 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 400px;
-            width: 90%;
+            padding: 15px;
+            max-width: 350px; /* Decreased width for mobile devices */
+            width: 85%;
             text-align: center;
+            height: auto; /* Increased height */
         }
         
         .card img {
             max-width: 100%;
             height: auto;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
         
         .card h1 {
@@ -40,14 +41,20 @@
         }
         
         .card p {
-            font-size: 14px;
+            font-size: 16.5px;
             line-height: 1.6;
+            text-align: left; /* Align content to the left */
             overflow: hidden;
             text-overflow: ellipsis;
+            overflow-wrap: break-word; /* Break long words to fit into the line */
+            word-break: break-word; /* Additional word break rule for older browsers */
             display: -webkit-box;
             -webkit-line-clamp: 5; /* Number of lines to show */
             -webkit-box-orient: vertical;
         }
+
+
+
 
         .read-more {
             color: blue;
@@ -82,7 +89,7 @@
     <script>
         // JavaScript to toggle between full content and truncated content with "Read more" option
         document.addEventListener("DOMContentLoaded", function() {
-            var showChar = 100; // Number of characters before "Read more" option appears
+            var showChar = 200; // Number of characters before "Read more" option appears
             var contentDiv = document.querySelector('.card p');
             var content = contentDiv.innerHTML;
 
@@ -112,4 +119,6 @@
         });
     </script>
 </body>
+
+
 </html>
