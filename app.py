@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,Response
 import os
 import sys
 
@@ -27,8 +27,12 @@ def get_data_by_id(id):
     response = magic(id)
     data = response.get_json()
     return render_template('template1.html', data=data)
-        
+    
 
+@app.route("/client")
+def client():
+    return render_template('clientSide/clientDashboard.html')  
+        
 
 if __name__ == '__main__':
     app.run(debug=True)

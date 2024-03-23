@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            margin-bottom: 20px; /* To push the content below the navbar */
+        }
+
+        .right-sidebar {
+            position: fixed;
+            top: 56px; /* Height of the navbar */
+            right: 20px;
+            bottom: 0;
+            width: 350px;
+            background-color: #f8f9fa; /* Optional: add a background color */
+            overflow-y: auto; /* Enable scrolling if content exceeds the height */
+        }
+
+        @media (max-width: 768px) {
+            .right-sidebar {
+                width: 100%;
+                top: 56px;
+                right: 0;
+            }
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 0.25rem;
+        }
+
+        .card-title {
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'clientSide/navbar.html' %}
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is the homepage.</p>
+    </div>
+
+    {% include 'clientSide/sidebar.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
