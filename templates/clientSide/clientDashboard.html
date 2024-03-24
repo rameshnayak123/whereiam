@@ -1,33 +1,42 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* Custom styles */
+        body {
+            background-color: #f5f5f5; /* Light background color */
+        }
+
         .navbar {
-            margin-bottom: 20px; /* To push the content below the navbar */
+            background-color: #ffffff; /* White navbar background */
+            border-bottom: 1px solid #e1e8ed; /* Light border at the bottom */
+            margin-bottom: 20px; /* Space below the navbar */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem; /* Increase font size of brand */
+            font-weight: bold; /* Make the brand bold */
+            color: #1da1f2; /* Twitter blue */
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1rem; /* Decrease font size of links */
+            color: #1da1f2; /* Twitter blue */
+            padding: 10px 15px; /* Adjust padding */
         }
 
         .right-sidebar {
-            position: fixed;
-            top: 56px; /* Height of the navbar */
-            right: 20px;
-            bottom: 0;
-            width: 350px;
-            background-color: #f8f9fa; /* Optional: add a background color */
-            overflow-y: auto; /* Enable scrolling if content exceeds the height */
+            background-color: #ffffff; /* White background for sidebar */
+            border-left: 1px solid #e1e8ed; /* Light border on the left */
+            padding: 10px;
         }
 
-        @media (max-width: 768px) {
-            .right-sidebar {
-                width: 100%;
-                top: 56px;
-                right: 0;
-            }
+        .form-control {
+            padding: 10px; /* Adjust padding for form controls */
         }
 
         .card {
@@ -37,29 +46,40 @@
         }
 
         .card-body {
-            padding: 0.25rem;
+            padding: 10px; /* Increase padding for card body */
         }
 
         .card-title {
-            margin-bottom: 1.25rem;
-            font-size: 1.25rem;
-            color: #333;
+            font-size: 1.25rem; /* Increase font size of card title */
+            font-weight: bold; /* Make the title bold */
+            color: #333; /* Dark text color */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .right-sidebar {
+                display: none; /* Hide sidebar on small screens */
+            }
         }
     </style>
 </head>
-
 <body>
     {% include 'clientSide/navbar.html' %}
-    <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is the homepage.</p>
-    </div>
 
-    {% include 'clientSide/sidebar.html' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                {% include 'clientSide/area.html' %}
+                {% include 'clientSide/table.html' %}
+            </div>
+            <div class="col-md-4 right-sidebar">
+                {% include 'clientSide/sidebar.html' %}
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

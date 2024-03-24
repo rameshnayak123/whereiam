@@ -26,8 +26,9 @@ def saveTCT():
         'title': title,
         'content': content,
         'image_path': f'/static/images/{img_name}',
+        'url':url,
         'date_time': current_time,
-        'url': f'{domain_name}/magic/{random_code}'
+        'magic_url': f'{domain_name}/magic/{random_code}'
     }
     json_name = save_json(data)
     
