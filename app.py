@@ -1,6 +1,7 @@
-from flask import Flask,render_template,Response
+from flask import Flask,render_template,Response,jsonify
 import os
 import sys
+import json
 
 # Add the directory containing captureTitle.py to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'program')))
@@ -31,7 +32,15 @@ def get_data_by_id(id):
 
 @app.route("/client")
 def client():
-    return render_template('clientSide/clientDashboard.html')  
+    data = fetch_data()
+    return render_template('clientSide/clientDashboard.html',data=data)  
+
+
+def fetch_data():
+    # Load data from the JSON file
+    with open('static/json/magic.json', 'r') as f:
+        data = json.load(f)
+    return data
         
 
 if __name__ == '__main__':

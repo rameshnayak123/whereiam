@@ -1,20 +1,11 @@
 [
     {
-        "id": "f9fcf5oWHXai6r",
+        "id": "vRjaEQZZiXLe9F",
         "title": "Top events today: Putin declares day of mourning, BJP's 4th list of candidates likely today, and more | Mint",
-        "content": "LSA summarizer requires NumPy. Please, install it by command 'pip install numpy'.",
-        "image_path": "/static/images/20240324112335.jpg",
+        "content": "NLTK tokenizers are missing or the language is not supported.\nDownload them by following command: python -c \"import nltk; nltk.download('punkt')\"\nOriginal error was:\n\n**********************************************************************\n  Resource \u001b[93mpunkt\u001b[0m not found.\n  Please use the NLTK Downloader to obtain the resource:\n\n  \u001b[31m>>> import nltk\n  >>> nltk.download('punkt')\n  \u001b[0m\n  For more information see: https://www.nltk.org/data.html\n\n  Attempted to load \u001b[93mtokenizers/punkt/PY3/english.pickle\u001b[0m\n\n  Searched in:\n    - '/home/gitpod/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/share/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/lib/nltk_data'\n    - '/usr/share/nltk_data'\n    - '/usr/local/share/nltk_data'\n    - '/usr/lib/nltk_data'\n    - '/usr/local/lib/nltk_data'\n    - ''\n**********************************************************************\n",
+        "image_path": "/static/images/20240325143940.jpg",
         "url": "https://www.livemint.com/news/india/top-events-today-moscow-terrorist-attack-isis-putin-rajnath-singh-siachen-pm-modi-bjp-cec-4th-list-choti-holi-2024-11711243741165.html",
-        "date_time": "2024-03-24 11:23:35",
-        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/f9fcf5oWHXai6r"
-    },
-    {
-        "id": "Bp33IVvgYxkbYR",
-        "title": "Top events today: Putin declares day of mourning, BJP's 4th list of candidates likely today, and more | Mint",
-        "content": "Top events today: Russian President Vladimir Putin pledged to seek justice against those responsible for the \u201cbarbaric terrorist attack\" at a Moscow concert hall that claimed over 130 lives. Related Premium Stories A 140-year-old policy puts its stamp on postal department\u2019s life insurance biz Mint Explainer: What falling total fertility rate will mean for India No silver lining for buyers in this India-UAE treaty Mint Primer | Mind the income gap: Is India becoming a plutocracy? Related Premium Stories A 140-year-old policy puts its stamp on postal department\u2019s life insurance biz Mint Explainer: What falling total fertility rate will mean for India No silver lining for buyers in this India-UAE treaty Mint Primer | Mind the income gap: Is India becoming a plutocracy? More\nLess\nPublished: 24 Mar 2024,\nTopics You Be Interested In\nTop events today\nRussia\nMoscow terrorist attack\nVladimir Putin\nMoscow concert attack\nNational mourning day on 24\nNauru President\nChina\nChoti Holi\nWorld TB Day\nBJP candidate list\nRajnath Singh to visit Siachen today; celebrate Holi with military personnel Defence Minister Rajnath Singh plans to visit the Siachen area, the world's highest battlefield, on 24 to celebrate Holi with the armed forces personnel stationed there. More\nLess\nPublished: 24 Mar 2024,\nTopics You Be Interested In\nTop events today\nRussia\nMoscow terrorist attack\nVladimir Putin\nMoscow concert attack\nNational mourning day on 24\nNauru President\nChina\nChoti Holi\nWorld TB Day\nBJP candidate list\nLok Sabha Election 2024: PM Modi leads BJP's CEC meet; 4th List of candidates likely today Bharatiya Janta Party (BJP) held a meeting of its Central Election Committee on to decide the names of the candidates from Uttar Pradesh, West Bengal, Rajasthan, Odisha and Andhra Pradesh for the upcoming Lok Sabha elections.",
-        "image_path": "/static/images/20240324112505.jpg",
-        "url": "https://www.livemint.com/news/india/top-events-today-moscow-terrorist-attack-isis-putin-rajnath-singh-siachen-pm-modi-bjp-cec-4th-list-choti-holi-2024-11711243741165.html",
-        "date_time": "2024-03-24 11:25:05",
-        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/Bp33IVvgYxkbYR"
+        "date_time": "2024-03-25 14:39:40",
+        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/vRjaEQZZiXLe9F"
     }
 ]
