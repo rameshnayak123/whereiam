@@ -61,6 +61,28 @@
                 display: none; /* Hide sidebar on small screens */
             }
         }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -75,11 +97,41 @@
             <div class="col-md-4 right-sidebar">
                 {% include 'clientSide/sidebar.html' %}
             </div>
+            <div class="overlay"></div>
+            <div class="popup" id="popup">
+                <button id="closePopup">Close</button>
+                <iframe src="/" width="400" height="300" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementById("loadPage2").addEventListener("click", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("pageContent").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+    });
+</script>
+<script>
+    // Open the popup
+    document.getElementById("openPopup").addEventListener("click", function() {
+        document.getElementById("popup").style.display = "block";
+        document.querySelector(".overlay").style.display = "block";
+    });
+
+    // Close the popup
+    document.getElementById("closePopup").addEventListener("click", function() {
+        document.getElementById("popup").style.display = "none";
+        document.querySelector(".overlay").style.display = "none";
+    });
+</script>
 </body>
 </html>
