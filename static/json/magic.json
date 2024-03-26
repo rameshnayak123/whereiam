@@ -1,11 +1,22 @@
 [
     {
-        "id": "vRjaEQZZiXLe9F",
-        "title": "Top events today: Putin declares day of mourning, BJP's 4th list of candidates likely today, and more | Mint",
-        "content": "NLTK tokenizers are missing or the language is not supported.\nDownload them by following command: python -c \"import nltk; nltk.download('punkt')\"\nOriginal error was:\n\n**********************************************************************\n  Resource \u001b[93mpunkt\u001b[0m not found.\n  Please use the NLTK Downloader to obtain the resource:\n\n  \u001b[31m>>> import nltk\n  >>> nltk.download('punkt')\n  \u001b[0m\n  For more information see: https://www.nltk.org/data.html\n\n  Attempted to load \u001b[93mtokenizers/punkt/PY3/english.pickle\u001b[0m\n\n  Searched in:\n    - '/home/gitpod/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/share/nltk_data'\n    - '/home/gitpod/.pyenv/versions/3.12.2/lib/nltk_data'\n    - '/usr/share/nltk_data'\n    - '/usr/local/share/nltk_data'\n    - '/usr/lib/nltk_data'\n    - '/usr/local/lib/nltk_data'\n    - ''\n**********************************************************************\n",
-        "image_path": "/static/images/20240325143940.jpg",
-        "url": "https://www.livemint.com/news/india/top-events-today-moscow-terrorist-attack-isis-putin-rajnath-singh-siachen-pm-modi-bjp-cec-4th-list-choti-holi-2024-11711243741165.html",
-        "date_time": "2024-03-25 14:39:40",
-        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/vRjaEQZZiXLe9F"
+        "id": "QvDK6cdV0YslCI",
+        "cardName": "New Title here ",
+        "title": "22 New Technology Trends for 2024: New Tech Horizons",
+        "content": "After mastering generative AI, individuals can pursue exciting job roles in fields such as artificial intelligence research, data science, and creative industries. At the same time, we have 5G already; gear up for an era of 6G with more power in our hands and devices surrounding us. Smarter devices are another addition to the IT industry that is of high requirement and demand as more companies transform into digital spaces. With AI spreading its wings across sectors, new jobs will be created in development, programming, testing, support and maintenance, to name a few. 5G Network subscriptions will reach 4.4 billion by the end of 2027, making it an emerging technology trend you must watch out for, and also save a spot in.",
+        "image_path": "/static/images/20240326145448.jpg",
+        "url": "https://www.simplilearn.com/top-technology-trends-and-jobs-article",
+        "date_time": "2024-03-26 14:54:48",
+        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/QvDK6cdV0YslCI"
+    },
+    {
+        "id": "mGzAIHwqFPPinU",
+        "cardName": "New Title here ",
+        "title": "22 New Technology Trends for 2024: New Tech Horizons",
+        "content": "After mastering generative AI, individuals can pursue exciting job roles in fields such as artificial intelligence research, data science, and creative industries. At the same time, we have 5G already; gear up for an era of 6G with more power in our hands and devices surrounding us. Smarter devices are another addition to the IT industry that is of high requirement and demand as more companies transform into digital spaces. With AI spreading its wings across sectors, new jobs will be created in development, programming, testing, support and maintenance, to name a few. 5G Network subscriptions will reach 4.4 billion by the end of 2027, making it an emerging technology trend you must watch out for, and also save a spot in.",
+        "image_path": "/static/images/20240326150520.jpg",
+        "url": "https://www.simplilearn.com/top-technology-trends-and-jobs-article",
+        "date_time": "2024-03-26 15:05:20",
+        "magic_url": "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io/magic/mGzAIHwqFPPinU"
     }
 ]

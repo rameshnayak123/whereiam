@@ -15,6 +15,7 @@ from saveJson import save_json
 def saveTCT():
     domain_name = "https://5000-rameshnayak123-whereiam-fqs89wrys0s.ws-us110.gitpod.io"
     url = request.json['url']
+    cardName = request.json['cardName']
     random_code = generate_random_code(14)
     title = extract_title(url)
     content = extract_content(url)
@@ -23,6 +24,7 @@ def saveTCT():
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = {
         'id': random_code,
+        'cardName' : cardName,
         'title': title,
         'content': content,
         'image_path': f'/static/images/{img_name}',

@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 from sumy.parsers.html import HtmlParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
+import nltk
+nltk.download('punkt')
 import re
 
 def extract_content(url):
