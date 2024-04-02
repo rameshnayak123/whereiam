@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("clientSide/createCard.html")
+    return render_template("index.html")
 
 # capturing Title,Content and Thumbnail
 @app.route('/get_title_content_and_thumbnail', methods=['POST'])

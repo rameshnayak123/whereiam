@@ -3,44 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Scraping App</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Web Scraping App</h1>
-    <form id="urlForm">
-        <label for="urlInput">Enter URL:</label>
-        <input type="text" id="urlInput" name="url" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <div id="result">
-        <!-- Result will be displayed here -->
+    {% include 'homePage/navbar.html' %}
+    <div>
+        {% include 'homePage/homecard.html' %}
     </div>
-
-    <script>
-        document.getElementById("urlForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            var url = document.getElementById("urlInput").value;
-            fetch('/get_title_content_and_thumbnail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({url: url})
-            })
-            .then(response => response.json())
-            .then(data => {
-                var resultDiv = document.getElementById("result");
-                resultDiv.innerHTML = `
-                    <p><strong>Title:</strong> ${data.title}</p>
-                    <p><strong>Content:</strong> ${data.content}</p>
-                    <p><strong>Thumbnail:</strong> <img src="${data.image_path}" alt="Thumbnail"></p>
-                `;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
 </body>
 </html>
