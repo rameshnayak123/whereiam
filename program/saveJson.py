@@ -5,7 +5,6 @@ import json
 def save_json(data):
     json_file_path = 'static/json/magic.json'
     existing_data = []
-
     try:
         # Read existing JSON data
         if os.path.exists(json_file_path):
