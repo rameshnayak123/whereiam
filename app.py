@@ -16,6 +16,14 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route('/signin')
+def Signin():
+    return render_template("signin/signin.html")
+
+@app.route('/signup')
+def Signup():
+    return render_template("signup/signup.html")
+
 # capturing Title,Content and Thumbnail
 @app.route('/get_title_content_and_thumbnail', methods=['POST'])
 def get_title_content_and_thumbnail():
