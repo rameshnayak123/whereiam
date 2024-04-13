@@ -7,7 +7,7 @@ import json
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'program')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'Main')))
 
-from saveTitleContentThumnail import saveTCT
+from saveTitleContentThumnail import saveTCT,saveTCTindexdata
 from Magic import magic
 
 app = Flask(__name__)
@@ -28,6 +28,10 @@ def Signup():
 @app.route('/get_title_content_and_thumbnail', methods=['POST'])
 def get_title_content_and_thumbnail():
     return saveTCT()
+
+@app.route('/indexdata', methods=['POST'])
+def indexdata():
+    return saveTCTindexdata()
 
 
 # checking that magic link is working or not

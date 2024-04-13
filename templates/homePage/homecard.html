@@ -180,7 +180,7 @@
         event.preventDefault();
         var url = document.getElementById("urlInput").value;
         var cardName = document.getElementById("cardname").value;
-        fetch('/get_title_content_and_thumbnail', {
+        fetch('/indexdata', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
