@@ -8,7 +8,7 @@ from randomCode import generate_random_code
 from captureTitle import extract_title
 from extractContent import extract_content
 from extractThumbnail import extract_thumbnail
-from saveImage import save_image
+from saveImage import save_image,save_imageindex
 from saveJson import save_json,save_indexdata
 
 
@@ -45,7 +45,7 @@ def saveTCTindexdata():
     title = extract_title(url)
     content = extract_content(url)
     thumbnail = extract_thumbnail(url)
-    img_name = save_image(thumbnail)
+    img_name = save_imageindex(thumbnail)
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     indexdata = {
         'id': random_code,
@@ -55,7 +55,7 @@ def saveTCTindexdata():
         'image_path': f'/static/indeximages/{img_name}',
         'url':url,
         'date_time': current_time,
-        'magic_url': f'{domain_name}/magic/{random_code}'
+        'magic_url': f'{domain_name}/indexmagic/{random_code}'
     }
     json_name = save_indexdata(indexdata)
     

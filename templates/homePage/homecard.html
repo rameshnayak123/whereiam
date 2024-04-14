@@ -5,161 +5,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Carousel Slide</title>
     <style>
-                * { box-sizing: border-box; }
+        * { box-sizing: border-box; }
         @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
 
-
         body {
-        font-family: 'Rubik', sans-serif;
+            font-family: 'Rubik', sans-serif;
         }
 
         .container {
-        display: flex;
-        height: 55vh;
-        margin-top: 0.5vh;
-        
-        }
-
-        .left {
-        overflow: hidden;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        animation-name: left;
-        animation-duration: 1s;
-        animation-fill-mode: both;
-        animation-delay: 1s;
+            display: flex;
+            height: 55vh;
+            margin-top: 0.5vh;
         }
 
         .right {
-        flex: 1;
-        background-color: black;
-        transition: 1s;
-        background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+            flex: 1;
+            background-color: black;
+            transition: 1s;
+            background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-
-
         .header > h2 {
-        margin: 0;
-        color: #4f46a5;
+            margin: 0;
+            color: #4f46a5;
         }
 
         .header > h4 {
-        margin-top: 10px;
-        font-weight: normal;
-        font-size: 15px;
-        color: rgba(0,0,0,.4);
+            margin-top: 10px;
+            font-weight: normal;
+            font-size: 15px;
+            color: rgba(0,0,0,.4);
         }
 
         .form {
-        max-width: 80%;
-        display: flex;
-        flex-direction: column;
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form.horizontal {
+            flex-direction: row;
+            align-items: center;
         }
 
         .form > p {
-        text-align: right;
+            text-align: right;
         }
 
         .form > p > a {
-        color: #000;
-        font-size: 14px;
+            color: #000;
+            font-size: 14px;
         }
 
         .form-field {
-        height: 46px;
-        padding: 0 16px;
-        border: 2px solid #ddd;
-        border-radius: 4px;
-        font-family: 'Rubik', sans-serif;
-        outline: 0;
-        transition: .2s;
-        margin-top: 20px;
+            height: 46px;
+            padding: 0 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Rubik', sans-serif;
+            outline: 0;
+            transition: .2s;
+            margin-top: 20px;
         }
 
         .form-field:focus {
-        border-color: #0f7ef1;
+            border-color: #0f7ef1;
         }
 
         .form > button {
-        padding: 12px 10px;
-        border: 0;
-        background: linear-gradient(to right, #de48b5 0%,#0097ff 100%); 
-        border-radius: 3px;
-        margin-top: 10px;
-        color: #fff;
-        letter-spacing: 1px;
-        font-family: 'Rubik', sans-serif;
+            padding: 12px 10px;
+            border: 0;
+            background: linear-gradient(to right, #de48b5 0%,#0097ff 100%); 
+            border-radius: 3px;
+            margin-top: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+            font-family: 'Rubik', sans-serif;
         }
 
         .animation {
-        animation-name: move;
-        animation-duration: .4s;
-        animation-fill-mode: both;
-        animation-delay: 2s;
+            animation-name: move;
+            animation-duration: .4s;
+            animation-fill-mode: both;
+            animation-delay: 2s;
         }
 
         .a1 {
-        animation-delay: 2s;
+            animation-delay: 2s;
         }
 
         .a2 {
-        animation-delay: 2.1s;
+            animation-delay: 2.1s;
         }
 
         .a3 {
-        animation-delay: 2.2s;
+            animation-delay: 2.2s;
         }
 
         .a4 {
-        animation-delay: 2.3s;
+            animation-delay: 2.3s;
         }
 
         .a5 {
-        animation-delay: 2.4s;
+            animation-delay: 2.4s;
         }
 
         .a6 {
-        animation-delay: 2.5s;
+            animation-delay: 2.5s;
         }
 
         @keyframes move {
-        0% {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-40px);
+            0% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-40px);
+            }
+
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
         }
 
-        100% {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        /* Additional styles for the result card */
+        .result-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            max-width: 350px; /* Decreased width for mobile devices */
+            width: 85%;
+            text-align: center;
+            height: auto; /* Increased height */
         }
+        
+
+        .result-card .card-body {
+            margin-bottom: 10px;
         }
 
-        @keyframes left {
-        0% {
-            opacity: 0;
-            width: 0;
+        .result-card .card-title {
+            color: #4f46a5;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        100% {
-            opacity: 1;
-            padding: 20px 40px;
-            width: 440px;
+        .result-card .card-text {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 15.5px;
+            line-height: 1.6;
+            text-align: left; /* Align content to the left */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: break-word; /* Break long words to fit into the line */
+            word-break: break-word; /* Additional word break rule for older browsers */
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* Number of lines to show */
+            -webkit-box-orient: vertical;
         }
+
+        .result-card .card-img-bottom {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .read-more {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="right">
-          
+            <!-- Image will be displayed here -->
         </div>
         <div class="left">
             <div class="header">
@@ -168,46 +198,69 @@
             </div>
             <form id="urlForm" class="form">
                 <input type="text" class="form-field animation a4" placeholder="Card Name" id="cardname" name="cardname" required>
-                <input type="text" class="form-field animation a3" placeholder="Enter url to create magic" id="urlInput" name="url" required>
+                <input type="url" class="form-field animation a3" placeholder="Enter url to create magic" id="urlInput" name="url" required>
                 <button type="submit" class="animation a6">Get Mcard</button>
             </form>
         </div>
-      </div>
-      
-<!-- Custom JavaScript -->
-<script>
-    document.getElementById("urlForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var url = document.getElementById("urlInput").value;
-        var cardName = document.getElementById("cardname").value;
-        fetch('/indexdata', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({url: url, cardName: cardName})
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("urlForm").style.display = "none"; // Hide the form
-            var resultContainer = document.getElementById("resultContainer");
-            resultContainer.style.display = "block"; // Show the result container
-            var resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Title: ${data.title}</h5>
-                        <p class="card-text">Content: ${data.content}</p>
-                    </div>
-                    <img src="${data.image_path}" class="card-img-bottom" alt="Thumbnail">
-                </div>
-            `;
-            document.getElementById("urlForm").reset(); // Reset the form
-        })
-        .catch(error => {
-            console.error('Error:', error);
+    </div>
+
+    <div id="resultContainer" style="display: none;">
+        <div id="result"></div>
+
+        <div class="left" id="formContainer" style="display: none;">
+            <form id="urlForm" class="form">
+                <input type="text" class="form-field animation a4" placeholder="Card Name" id="cardnameResult" name="cardnameResult" required>
+                <input type="url" class="form-field animation a3" placeholder="Enter url to create magic" id="urlInputResult" name="urlResult" required>
+                <button type="submit" class="animation a6">Get Mcard</button>
+            </form>
+        </div>
+
+        <div id="cardContainer" style="display: none;">
+            <div class="result-card">
+                <h1 id="cardTitle" class="card-title"></h1>
+                <img id="cardImage" class="card-img-bottom" src="" alt="Image">
+                <p id="cardContent" class="card-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("urlForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var url = document.getElementById("urlInput").value;
+            var cardName = document.getElementById("cardname").value;
+            fetch('/indexdata', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({url: url, cardName: cardName})
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide form, image, and button
+                document.querySelector('.right').style.display = "none";
+                document.querySelector('.left').style.display = "none";
+
+                // Show the result container
+                var resultContainer = document.getElementById("resultContainer");
+                resultContainer.style.display = "block";
+
+                // Show form for result
+                var formContainer = document.getElementById("formContainer");
+                formContainer.style.display = "block";
+
+                // Populate card with data
+                var cardContainer = document.getElementById("cardContainer");
+                cardContainer.style.display = "block";
+                document.getElementById("cardTitle").textContent = data.title;
+                document.getElementById("cardImage").src = data.image_path;
+                document.getElementById("cardContent").textContent = data.content;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>

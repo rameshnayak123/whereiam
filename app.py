@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'program
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'Main')))
 
 from saveTitleContentThumnail import saveTCT,saveTCTindexdata
-from Magic import magic
+from Magic import magic,magicindex
 
 app = Flask(__name__)
 
@@ -40,6 +40,13 @@ def get_data_by_id(id):
     response = magic(id)
     data = response.get_json()
     return render_template('template1.html', data=data)
+
+@app.route('/indexmagic/<string:id>', methods=['GET'])
+def get_data_by_idindex(id):
+    response = magicindex(id)
+    data = response.get_json()
+    return render_template('template1.html', data=data)
+
     
 
 @app.route("/client")
